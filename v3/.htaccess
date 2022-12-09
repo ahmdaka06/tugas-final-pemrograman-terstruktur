@@ -1,0 +1,22 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+
+# Menghilangkan Ekstensi [PHP HTML] #
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+
+# RewriteBase /
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule ^(.+)$ learn/tugas-final/v3/index.php [QSA,L]
+
+
+RewriteCond $1 !^(app/api/order\.php)
+RewriteRule ^api/order app/api/order.php [L]
+RewriteCond $1 !^(app/api/cart\.php)
+RewriteRule ^api/cart app/api/cart.php [L]
+RewriteCond $1 !^(app/view/order/invoice\.php)
+RewriteRule ^order/invoice/([^/\.]+)/?$ app/view/order/invoice.php?id=$1 [L]
+</IfModule>

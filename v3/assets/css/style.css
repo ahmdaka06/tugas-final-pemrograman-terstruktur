@@ -1,0 +1,15 @@
+.bg-success {
+    background-color: #1fc377 !important;
+    color: whitesmoke;
+    border: none !important;
+}
+.btn-success {
+    background-color: #1fc377 !important;
+    color: whitesmoke;
+    border : 1px solid #1fc377 !important;
+}
+.btn-warning, .btn-warning:hover {
+    background-color: #eea318 !important;
+    color: whitesmoke;
+    border : 1px solid #eea318 !important;
+}
