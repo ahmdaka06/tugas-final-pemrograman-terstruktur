@@ -99,22 +99,21 @@ if (!empty($carts)) {
                 </tbody>
             </table>
         </div>
-    </div>
-    <div class="pb-2 my-2">
-        <div class="float-end">
-            <?php if (get_discount($total_order) > 0) { ?>
-            <p class="text-danger fw-bold">
-                <em>Anda mendapatkan diskon sebesar <?= get_discount($total_order) ?>%</em>
-            </p>
-            <?php } ?>
-        </div>
-    </div>
-    
-    <div class="pb-2 my-5">
-        <div class="d-flex justify-content-center">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="float-end">
+                    <?php if (get_discount($total_order) > 0) { ?>
+                    <p class="text-danger fw-bold">
+                        <em>Anda mendapatkan diskon sebesar <?= get_discount($total_order) ?>%</em>
+                    </p>
+                    <?php } ?>
+                </div>
+            </div>
+            <div class="col-md-12 text-center">
             <?php if (!empty($cart)) { ?>
                 <button class="btn btn-success" onclick="checkoutCart()"><i class="bi bi-cart-plus"></i> Checkout</button>
             <?php } ?>
+            </div>
         </div>
     </div>
 </div>

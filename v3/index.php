@@ -137,6 +137,21 @@ $orderHistories = isset($_SESSION['orderHistory']) ? $_SESSION['orderHistory'] :
                 quantity: 1
             },
             dataType: 'JSON',
+            beforeSend: function() {
+                swal.fire({
+                    title: 'Mohon tunggu...',
+                    allowOutsideClick: false,
+                        didOpen: function () {
+                            swal.showLoading()
+                    }
+                });
+                $('#cart').html(`
+                <div class="text-center mt-2">
+                    <div class="spinner-border text-success" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>`);
+            },
             success: function(response) {
                 if (response.status == false) {
                     Swal.fire('Gagal!', response.msg, 'error');
@@ -170,7 +185,7 @@ $orderHistories = isset($_SESSION['orderHistory']) ? $_SESSION['orderHistory'] :
                     processData: false,
                     success: function (response) {
                         if (response.status == true) {
-                            Toast.fire('Berhasil!', response.msg, 'success').then(() => {
+                            Swal.fire('Berhasil!', response.msg, 'success').then(() => {
                                 window.location = '<?= url('order/invoice/') ?>' + response.orderID;
                             });
                             cartLists();

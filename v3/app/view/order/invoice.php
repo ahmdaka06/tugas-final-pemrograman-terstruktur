@@ -20,37 +20,31 @@ if ($orderHistory == false) {
     </div>
     <div class="col-md-12">
         <div class="card shadow">
+            <div class="card-header bg-success  py-3">
+                <h5 style="text-white">Invoice >> <strong>ID: #<?= $id ?></strong></h5>
+            </div>
             <div class="card-body">
                 <div class="container mb-5 mt-3">
-                    <div class="row d-flex align-items-baseline">
-                        <div class="col-xl-9">
-                            <p style="color: #7e8d9f;font-size: 20px;">Invoice >> <strong>ID: #<?= $id ?></strong></p>
-                        </div>
-                        <hr>
-                    </div>
-
                     <div class="container">
-
-
                         <div class="row">
                             <div class="col-xl-8">
                                 <ul class="list-unstyled">
-                                    <li class="text-muted">Kepada: <span style="color:#5d9fc5 ;">Customer</span></li>
+                                    <li class="text-muted">Kepada: <span class="text-center fw-bold">Customer</span></li>
                                     <li class="text-muted">Bareng Is The Best</li>
                                     <li class="text-muted">Jombang, Indonesia</li>
                                     <li class="text-muted"><i class="fas fa-phone"></i> 123-456-789</li>
                                 </ul>
                             </div>
                             <div class="col-xl-4">
-                                <p class="text-muted">Invoice</p>
+                                <p class="fw-bold">Invoice</p>
                                 <ul class="list-unstyled">
-                                    <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> 
-                                        <span class="fw-bold">ID:</span>#<?= $id ?>
+                                    <li class="text-muted"><i class="fas fa-circle"></i> 
+                                        <span class="fw-bold">ID:   </span>#<?= $id ?>
                                     </li>
-                                    <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> 
-                                        <span class="fw-bold">Creation Date: </span> <?= format_date($orderHistory['created_at']) ?>
+                                    <li class="text-muted"><i class="fas fa-circle"></i> 
+                                        <span class="fw-bold">Tanggal Transaksi:</span> <?= format_date($orderHistory['created_at']) ?>
                                     </li>
-                                    <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> 
+                                    <li class="text-muted"><i class="fas fa-circle"></i> 
                                         <span class="me-1 fw-bold">Status:</span>
                                         <span class="badge bg-success text-black fw-bold"> Sukses</span>
                                     </li>
@@ -58,33 +52,34 @@ if ($orderHistory == false) {
                             </div>
                         </div>
 
-                        <div class="row my-2 mx-1 justify-content-center">
-                            <table class="table table-striped table-borderless">
-                                <thead class="bg-success text-white">
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Produk</th>
-                                        <th scope="col">Jumlah</th>
-                                        <th scope="col">Harga Produk</th>
-                                        <th scope="col">Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php 
-                                        $i = 1;
-                                        foreach ($orderHistory['items'] as $key => $value) { 
-                                    ?> 
-                                    <tr>
-                                        <th scope="row"><?= $i++ ?></th>
-                                        <td><?= $value['name'] ?></td>
-                                        <td><?= currency($value['quantity']) ?></td>
-                                        <td><?= currency($value['price']) ?></td>
-                                        <td><?= currency($value['quantity'] * $value['price']) ?></td>
-                                    </tr>
-                                    <?php } ?>
-                                </tbody>
-
-                            </table>
+                        <div class="row justify-content-center">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-borderless">
+                                    <thead class="bg-success text-white">
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Produk</th>
+                                            <th scope="col">Jumlah</th>
+                                            <th scope="col">Harga Produk</th>
+                                            <th scope="col">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
+                                            $i = 1;
+                                            foreach ($orderHistory['items'] as $key => $value) { 
+                                        ?> 
+                                        <tr>
+                                            <th scope="row"><?= $i++ ?></th>
+                                            <td><?= $value['name'] ?></td>
+                                            <td><?= currency($value['quantity']) ?></td>
+                                            <td>Rp <?= currency($value['price']) ?></td>
+                                            <td>Rp <?= currency($value['quantity'] * $value['price']) ?></td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <hr>
                         <div class="row">
@@ -98,7 +93,7 @@ if ($orderHistory == false) {
                                     <li>
                                     <p class="text-black float-start">
                                         <span class="text-black me-3"> Total Amount</span>
-                                        <span style="font-size: 25px;"> <strong>Rp <?= currency($orderHistory['totalOrderAmount'] - $orderHistory['discountAmount']) ?></strong></span>
+                                        <span> <strong>Rp <?= currency($orderHistory['totalOrderAmount'] - $orderHistory['discountAmount']) ?></strong></span>
                                     </p>
                                     </li>
                                 </ul>
