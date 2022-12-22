@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Baju Koko",
+        "price": 200000,
+        "img": "https://cf.shopee.co.id/file/0c4aa6b27c47d85b0baccefc97ecbd75"
+    },
+    {
+        "id": 2,
+        "name": "Baju Gamis",
+        "price": 200000,
+        "img": "https://cf.shopee.co.id/file/7601e30a37764c9f722818fa63c4e75c"
+    },
+    {
+        "id": 3,
+        "name": "Celana Jeans",
+        "price": 150000,
+        "img": "https://cf.shopee.co.id/file/sg-11134201-22120-vqhzuqqzp3kvea"
+    },
+    {
+        "id": 4,
+        "name": "Celana Cino M",
+        "price": 100000,
+        "img": "https://cf.shopee.co.id/file/7c4e4ed04cb648135de52fd7f864a782"
+    }
+]
