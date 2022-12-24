@@ -26,11 +26,11 @@ const app = {
             times: `<?= date('H:i:s') ?>`
         }
     },
-    mounted() {
-        setInterval(() => this.setTime(), 1000);
+    async mounted() {
         this.fetchProducts();
         this.fetchCarts();
         this.fetchOrderHistories();
+        setInterval(async () => this.setTime(), 1000);
     },
     methods: {
         async fetchProducts(){

@@ -1,6 +1,7 @@
 <?php
 require_once '../../init.php';
 header('Content-type: application/json');
+cors();
 $request = json_decode(file_get_contents('php://input'), true);
 if (isMethod('post') AND isset($request['action'])) {
     switch ($request['action']) {

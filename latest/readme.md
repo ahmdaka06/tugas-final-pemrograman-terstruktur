@@ -1,0 +1,4 @@
+STACK
+- PHP 8
+- VUEJS
+- BOOTSTRAP 5

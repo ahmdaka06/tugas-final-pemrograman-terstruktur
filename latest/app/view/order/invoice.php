@@ -42,7 +42,7 @@ if ($orderHistory == false) {
                                         <span class="fw-bold">ID:   </span>#<?= $id ?>
                                     </li>
                                     <li class="text-muted"><i class="fas fa-circle"></i> 
-                                        <span class="fw-bold">Tanggal Transaksi:</span> <?= format_date($orderHistory['created_at']) ?>
+                                        <span class="fw-bold">Tanggal Transaksi:</span> <?= $orderHistory['created_at'] ?>
                                     </li>
                                     <li class="text-muted"><i class="fas fa-circle"></i> 
                                         <span class="me-1 fw-bold">Status:</span>
