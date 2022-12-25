@@ -60,10 +60,10 @@ $carts = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
                                         <td>{{ currencyIDR(cart.price * cart.quantity) }}</td>
                                         <td class="text-center">
                                             <button class="btn btn-success btn-sm m-2" v-on:click="updateCart(cart.id, 'increment')" type="button">
-                                                <i class="bi bi-cart-plus"> </i>
+                                                <i class="bi bi-plus-square"> </i>
                                             </button>
                                             <button class="btn btn-primary btn-sm m-2" v-on:click="updateCart(cart.id, 'decrement')" type="button" :disabled="cart.quantity == 1">
-                                                <i class="bi bi-cart-dash"> </i>
+                                                <i class="bi bi-dash-square"> </i>
                                             </button>
                                             <button class="btn btn-danger btn-sm m-2" v-on:click="removeCart(cart.id)" type="button">
                                                 <i class="bi bi-trash"></i>

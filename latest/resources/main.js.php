@@ -82,6 +82,7 @@ const app = {
             }); 
         },
         updateCart(id, type) {
+            loading();
             return axios.post(`<?= url('api/cart') ?>`, {
                 action: 'updateCart',
                 product: id,
@@ -91,12 +92,14 @@ const app = {
                     Swal.fire('Gagal!', response.data.msg, 'error');
                 } else {
                     this.fetchCarts();
+                    Toast.fire('Gagal!', response.data.msg, 'success');
                 }
             }).catch((err) => {
 
             }); 
         },
         removeCart(id, type) {
+            loading();
             return axios.post(`<?= url('api/cart') ?>`, {
                 action: 'removeCart',
                 product: id,
@@ -105,6 +108,7 @@ const app = {
                     Swal.fire('Gagal!', response.data.msg, 'error');
                 } else {
                     this.fetchCarts();
+                    Toast.fire('Gagal!', response.data.msg, 'success');
                 }
             }).catch((err) => {
 
